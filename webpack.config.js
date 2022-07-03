@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -11,6 +12,7 @@ module.exports = {
   devServer: { static: "./dist" },
   devtool: "inline-source-map",
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: "webpack-ts-rc",
     }),
