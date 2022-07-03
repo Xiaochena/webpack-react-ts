@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",
   mode: "development",
   output: {
     filename: "main.js",
@@ -36,5 +36,8 @@ module.exports = {
         },
       },
     ],
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
   },
 };
