@@ -1,15 +1,15 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+import path from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import webpack from "webpack";
 
-module.exports = {
+const config: webpack.Configuration = {
   entry: "./src/index.tsx",
   mode: "development",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
-  devServer: { static: "./dist" },
   devtool: "inline-source-map",
   plugins: [
     new CleanWebpackPlugin(),
@@ -45,3 +45,4 @@ module.exports = {
     extensions: [".js", ".jsx", ".tsx"],
   },
 };
+export default config;
