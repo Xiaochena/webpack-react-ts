@@ -26,6 +26,10 @@ const config: webpack.Configuration = {
         use: ["style-loader", "css-loader"],
       },
       {
+        test: /.less$/,
+        use: ["style-loader", "css-loader", "less-loader"],
+      },
+      {
         test: /\.(js|jsx|tsx)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
