@@ -2,7 +2,7 @@ import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import webpack from "webpack";
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const config: webpack.Configuration = {
   entry: "./src/index.tsx",
