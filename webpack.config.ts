@@ -2,6 +2,7 @@ import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import webpack from "webpack";
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config: webpack.Configuration = {
   entry: "./src/index.tsx",
@@ -18,16 +19,19 @@ const config: webpack.Configuration = {
       template: "./public/index.html",
       inject: "body",
     }),
+    new MiniCssExtractPlugin({
+      filename: "index.css", // 自定义生成的css文件名
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
       },
       {
         test: /\.(js|jsx|tsx)$/,
