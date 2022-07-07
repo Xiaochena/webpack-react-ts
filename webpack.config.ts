@@ -37,6 +37,14 @@ const config: webpack.Configuration = {
               },
             },
           },
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: ["autoprefixer"],
+              },
+            },
+          },
         ],
       },
       {
@@ -48,6 +56,14 @@ const config: webpack.Configuration = {
             options: {
               modules: {
                 localIdentName: "[name]_[local]_[hash]",
+              },
+            },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: ["autoprefixer"],
               },
             },
           },
