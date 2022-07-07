@@ -27,11 +27,32 @@ const config: webpack.Configuration = {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[name]_[local]_[hash]",
+              },
+            },
+          },
+        ],
       },
       {
         test: /.less$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                localIdentName: "[name]_[local]_[hash]",
+              },
+            },
+          },
+          "less-loader",
+        ],
       },
       {
         test: /\.(js|jsx|tsx)$/,
