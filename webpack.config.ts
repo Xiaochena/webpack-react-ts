@@ -1,7 +1,7 @@
+import webpack from "webpack";
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
-import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const config: webpack.Configuration = {
@@ -26,36 +26,14 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.(less|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
               modules: {
-                localIdentName: "[name]_[local]_[hash]",
-              },
-            },
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: ["autoprefixer"],
-              },
-            },
-          },
-        ],
-      },
-      {
-        test: /.less$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                localIdentName: "[name]_[local]_[hash]",
+                localIdentName: "[local]_[name]_[hash]",
               },
             },
           },

@@ -1,8 +1,14 @@
 import React from "react";
-import styles from "./app.less";
+import styles from "./styles.less";
+import cssStyles from "./styles.css";
 
 const App = () => {
-  return <h1 className={styles.app}>hello react</h1>;
+  return (
+    <div>
+      <h1 className={styles.app}>hello react</h1>
+      <h1 className={cssStyles.app}>hello react</h1>
+    </div>
+  );
 };
 
 export default App;
